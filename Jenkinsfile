@@ -1,7 +1,9 @@
 
 
 pipeline {
-    agent any
+    agent {
+        docker { image 'maven' }
+    }
     environment { 
         CC = 'clang'
         // Using returnStdout
