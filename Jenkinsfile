@@ -21,6 +21,11 @@ pipeline {
     }
     stages {
         stage('Example') {
+            when {
+                expression {
+                    env.BRANCH_NAME == 'main'
+                }
+            }
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "${params.Greeting} World!"
