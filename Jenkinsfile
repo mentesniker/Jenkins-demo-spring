@@ -16,9 +16,9 @@ pipeline {
                 script: 'exit 1'
             )}"""
     }
-    parameters {
-        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
-    }
+    //parameters {
+    //    string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+    //}
     stages {
         stage('Example') {
             when {
@@ -28,7 +28,7 @@ pipeline {
             }
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-                echo "${params.Greeting} World!"
+                echo "${env.BRANCH_NAME}"
             }
         }
         stage('Example2') {
